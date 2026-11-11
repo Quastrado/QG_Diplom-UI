@@ -3,11 +3,12 @@ package pages.components;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class Navbar {
 
-    private final SelenideElement navbarNavigationButton =  $$(".navbar__btn").get(0);
+    private final SelenideElement navbarNavigationButton =  $("._hamburger_cu9fp_1");
     private final SelenideElement navbarBookmarksButton = $$(".navbar__btn").get(1);
     private final SelenideElement navbarSearchButton = $$(".navbar__btn").get(2);
     private final SelenideElement navbarBugReportButton = $$(".navbar__btn").get(3);
