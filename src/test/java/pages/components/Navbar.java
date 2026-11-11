@@ -8,9 +8,9 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class Navbar {
 
-    private final SelenideElement navbarNavigationButton =  $("._hamburger_cu9fp_1");
-    private final SelenideElement navbarBookmarksButton = $(".rounded-md.inline-flex.text-default.p-2");
-    private final SelenideElement navbarSearchButton = $$(".navbar__btn").get(2);
+    private final SelenideElement navbarNavigationButton =  $("[aria-label='Меню']");
+    private final SelenideElement navbarBookmarksButton = $("[aria-label='Закладки']");
+    private final SelenideElement navbarSearchButton = $("[aria-label='Поиск']");
     private final SelenideElement navbarBugReportButton = $$(".navbar__btn").get(3);
     private final SelenideElement colorThemeButton = $$(".navbar__btn").get(5);
 

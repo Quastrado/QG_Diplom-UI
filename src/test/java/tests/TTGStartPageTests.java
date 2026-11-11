@@ -128,6 +128,27 @@ public class TTGStartPageTests extends TestBase {
     }
 
     @Test
+    @DisplayName("Checking the display of the search input block")
+    void checkOpenSearchInputBlock() {
+        SearchModal searchModal = navbar.searchButtonClick();
+        searchModal.inputBlockBecomeVisible();
+    }
+
+    @Test
+    @DisplayName("Checking the display of the search results block")
+    void checkOpenSearchResultsBlock() {
+        SearchModal searchModal = navbar.searchButtonClick();
+        searchModal.resultsBlockBecomeVisible();
+    }
+
+    @Test
+    @DisplayName("Checking the display of the search page link")
+    void checkOpenSearchPageLink() {
+        SearchModal searchModal = navbar.searchButtonClick();
+        searchModal.searchPageLinkBecomeVisible();
+    }
+
+    @Test
     @DisplayName("Checking the transition to the search page")
     void checkGoingToTheSearchPage() {
         SearchModal searchModal = navbar.searchButtonClick();
