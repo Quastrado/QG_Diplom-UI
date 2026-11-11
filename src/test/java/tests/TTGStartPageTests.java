@@ -71,11 +71,17 @@ public class TTGStartPageTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Checking the display of the bookmarks list")
+    @DisplayName("Checking the display of the bookmarks header")
     void checkOpenBookmarksList() {
         Bookmarks bookmarks = navbar.bookmarksButtonClick();
-        bookmarks.becomeVisible();
+        bookmarks.bookmarksHeaderBecomeVisible();
+    }
 
+    @Test
+    @DisplayName("Checking the display of the bookmarks list")
+    void checkOpenBookmarksHeader() {
+        Bookmarks bookmarks = navbar.bookmarksButtonClick();
+        bookmarks.bookmarksListBecomeVisible();
     }
 
     @Test
