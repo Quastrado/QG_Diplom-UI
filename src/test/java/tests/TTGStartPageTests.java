@@ -55,6 +55,22 @@ public class TTGStartPageTests extends TestBase {
     }
 
     @Test
+    @DisplayName("Checking the navigation menu close button display")
+    void checkNavigationModalMenuCLoseButton() {
+        NavigationMenu navigationMenu = navbar.navigationMenuButtonClick();
+        navigationMenu.menuBecomeVisible();
+        navigationMenu.closeButtonBecomeVisible();
+    }
+
+    @Test
+    @DisplayName("Checking the navigation menu close by button")
+    void checkCloseNavigationModalMenu() {
+        NavigationMenu navigationMenu = navbar.navigationMenuButtonClick();
+        navigationMenu.menuBecomeVisible();
+        navigationMenu.closeNavMenu();
+    }
+
+    @Test
     @DisplayName("Checking the display of the bookmarks list")
     void checkOpenBookmarksList() {
         Bookmarks bookmarks = navbar.bookmarksButtonClick();
