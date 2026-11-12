@@ -8,15 +8,35 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class BugReportModal {
 
-    private final SelenideElement bugReportModalHeader =  $(".bug-report-modal__header");
-    private final SelenideElement bugReportModalBody = $(".bug-report-modal__body");
-    private final SelenideElement bugReportModalFooter = $(".bug-report-modal__footer");
+    private final SelenideElement bugReportModalHeader =  $("[data-slot='header']");
+    private final SelenideElement bugReportModalBody = $("[data-slot='body']");
+    private final SelenideElement bugReportModalFooter = $("[data-slot='footer']");
+    private final SelenideElement bugReportModalTitle = $("[data-slot='title']");
+    private final SelenideElement bugReportModalCloseButton = $("[aria-label='Закрыть']");
 
-    @Step("Become visible")
-    public void becomeVisible() {
+    @Step("Bug report modal header become visible")
+    public void bugReportModalHeaderBecomeVisible() {
         bugReportModalHeader.shouldBe(visible);
+    }
+
+    @Step("Bug report modal body become visible")
+    public void bugReportModalBodyBecomeVisible() {
         bugReportModalBody.shouldBe(visible);
+    }
+
+    @Step("Bug report modal footer become visible")
+    public void bugReportModalFooterBecomeVisible() {
         bugReportModalFooter.shouldBe(visible);
     }
-    
+
+    @Step("Bug report modal close button become visible")
+    public void bugReportModalCloseButtonBecomeVisible() {
+        bugReportModalCloseButton.shouldBe(visible);
+    }
+
+    @Step("Close bug report modal")
+    public void bugReportModalClose() {
+        bugReportModalCloseButton.click();
+    }
+
 }

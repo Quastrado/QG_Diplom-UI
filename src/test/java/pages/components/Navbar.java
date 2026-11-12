@@ -11,7 +11,7 @@ public class Navbar {
     private final SelenideElement navbarNavigationButton =  $("[aria-label='Меню']");
     private final SelenideElement navbarBookmarksButton = $("[aria-label='Закладки']");
     private final SelenideElement navbarSearchButton = $("[aria-label='Поиск']");
-    private final SelenideElement navbarBugReportButton = $$(".navbar__btn").get(3);
+    private final SelenideElement navbarBugReportButton = $("[aria-label='Сообщить о баге']");
     private final SelenideElement colorThemeButton = $$(".navbar__btn").get(5);
 
     @Step("Navigation button click")
