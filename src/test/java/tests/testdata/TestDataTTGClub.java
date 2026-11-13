@@ -2,6 +2,7 @@ package tests.testdata;
 
 import pages.TTGClubSpellsScreenPage;
 
+import java.util.List;
 import java.util.Map;
 
 public class TestDataTTGClub {
@@ -14,4 +15,10 @@ public class TestDataTTGClub {
     public String formula = "d20";
     public String cssExpectedValue = "rgba(19, 26, 32, 1)";
     public String searchPageTitle = "Поиск по сайту";
+
+    public static List<String> settingsModalHeaders(){
+        return List.of("Оформление", "Разделы справочника");
+    }
+    public String lightThemeBackgroundColor = "light";
+    public String darkThemeBackgroundColor = "dark";
 }

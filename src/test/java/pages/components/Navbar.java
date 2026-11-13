@@ -12,7 +12,7 @@ public class Navbar {
     private final SelenideElement navbarBookmarksButton = $("[aria-label='Закладки']");
     private final SelenideElement navbarSearchButton = $("[aria-label='Поиск']");
     private final SelenideElement navbarBugReportButton = $("[aria-label='Сообщить о баге']");
-    private final SelenideElement colorThemeButton = $$(".navbar__btn").get(5);
+    private final SelenideElement navbarSettingsButton = $("[aria-label='Настройки отображения']");
 
     @Step("Navigation button click")
     public NavigationMenu navigationMenuButtonClick() {
@@ -42,11 +42,10 @@ public class Navbar {
         return new SearchModal();
     }
 
-    @Step("Color theme button click")
-    public ColorThemeModal colorThemeButtonClick() {
-        colorThemeButton.click();
-
-        return new ColorThemeModal();
+    @Step("Settings button click")
+    public SettingsModal settingsButtonClick() {
+        navbarSettingsButton.click();
+        return new SettingsModal();
     }
 
 }

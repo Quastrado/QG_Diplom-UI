@@ -2,6 +2,8 @@ package tests;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import pages.ClassesPage;
 import pages.SearchPage;
 import pages.TTGClubSpellsScreenPage;
@@ -117,14 +119,33 @@ public class TTGStartPageTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Checking to switch to a dark color theme")
-    void checkDarkThemeTurning() {
-        ColorThemeModal colorThemeModal = navbar.colorThemeButtonClick();
-        colorThemeModal.setDarkColorTheme();
-        step("The background color has changed to dark", () -> {
-            String backgroundColor = ttgClubStartPage.getBackgroundColor();
-            assertEquals(testData.cssExpectedValue, backgroundColor);
-        });
+    @DisplayName("Checking the display of the settings modal")
+    void checkOpenSettingsModal() {
+        SettingsModal settingsModal = navbar.settingsButtonClick();
+        settingsModal.settingsModalBecomeVisible();
+    }
+
+    @ParameterizedTest(name = "Checking the display of {0} header")
+    @MethodSource("tests.testdata.TestDataTTGClub#settingsModalHeaders")
+    void checkDisplayOfSettingsHeaders(String headerText) {
+        SettingsModal settingsModal = navbar.settingsButtonClick();
+        settingsModal.settingsModalHeaderBecomeVisible(headerText);
+    }
+
+    @Test
+    @DisplayName("Checking the switch theme to light")
+    void checkSwitchThemeToLight() {
+        SettingsModal settingsModal = navbar.settingsButtonClick();
+        String backgroundColor = settingsModal.lightThemeButtonClick();
+        assertEquals(testData.lightThemeBackgroundColor, backgroundColor);
+    }
+
+    @Test
+    @DisplayName("Checking the switch theme to light")
+    void checkSwitchThemeToDark() {
+        SettingsModal settingsModal = navbar.settingsButtonClick();
+        String backgroundColor = settingsModal.darkThemeButtonClick();
+        assertEquals(testData.darkThemeBackgroundColor, backgroundColor);
     }
 
     @Test
