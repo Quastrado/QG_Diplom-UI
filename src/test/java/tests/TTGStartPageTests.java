@@ -178,23 +178,13 @@ public class TTGStartPageTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Checking the display of the bug report modal header")
+    @DisplayName("Checking the display of the bug report modal interface")
     void checkBugReportModalHeaderDisplay() {
         BugReportModal bugReportModal = navbar.bugReportButtonClick();
         bugReportModal.bugReportModalHeaderBecomeVisible();
-    }
-
-    @Test
-    @DisplayName("Checking the display of the bug report modal body")
-    void checkBugReportModalBodyDisplay() {
-        BugReportModal bugReportModal = navbar.bugReportButtonClick();
+        bugReportModal.bugReportModalTitleBecomeVisible();
         bugReportModal.bugReportModalBodyBecomeVisible();
-    }
-
-    @Test
-    @DisplayName("Checking the display of the bug report modal footer")
-    void checkBugReportModalFooterDisplay() {
-        BugReportModal bugReportModal = navbar.bugReportButtonClick();
+        bugReportModal.bugReportModalTabsBecomeVisible();
         bugReportModal.bugReportModalFooterBecomeVisible();
     }
 
