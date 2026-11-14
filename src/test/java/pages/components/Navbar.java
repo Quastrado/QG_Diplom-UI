@@ -4,7 +4,6 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
 
 public class Navbar {
 
@@ -12,33 +11,36 @@ public class Navbar {
     private final SelenideElement navbarBookmarksButton = $("[aria-label='Закладки']");
     private final SelenideElement navbarSearchButton = $("[aria-label='Поиск']");
     private final SelenideElement navbarBugReportButton = $("[aria-label='Сообщить о баге']");
+    private final SelenideElement navbarAuthorizationButton = $("[aria-label='Войти']");
     private final SelenideElement navbarSettingsButton = $("[aria-label='Настройки отображения']");
 
     @Step("Navigation button click")
     public NavigationMenu navigationMenuButtonClick() {
         navbarNavigationButton.click();
-
         return new NavigationMenu();
     }
 
     @Step("Bookmarks button click")
     public Bookmarks bookmarksButtonClick() {
         navbarBookmarksButton.click();
-
         return new Bookmarks();
     }
 
     @Step("Bug report button click")
     public BugReportModal bugReportButtonClick() {
         navbarBugReportButton.click();
-
         return new BugReportModal();
+    }
+
+    @Step("Authorization button click")
+    public AuthorizationModal authorizationButtonClick() {
+        navbarAuthorizationButton.click();
+        return new AuthorizationModal();
     }
 
     @Step("Search button click")
     public SearchModal searchButtonClick() {
         navbarSearchButton.click();
-
         return new SearchModal();
     }
 

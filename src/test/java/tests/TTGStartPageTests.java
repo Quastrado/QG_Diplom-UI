@@ -206,4 +206,35 @@ public class TTGStartPageTests extends TestBase {
         bugReportModal.bugReportModalClose();
     }
 
+    @Test
+    @DisplayName("Checking the display of authorization modal and login interface")
+    void checkAuthorizationModalDisplay() {
+        AuthorizationModal authorizationModal = navbar.authorizationButtonClick();
+        authorizationModal.authorizationModalBecomeVisible();
+        authorizationModal.loginInputBecomeVisible();
+        authorizationModal.passwordInputBecomeVisible();
+        authorizationModal.rememberMeBecomeVisible();
+        authorizationModal.forgottenPasswordButtonBecomeVisible();
+        authorizationModal.signInPasswordButtonBecomeVisible();
+    }
+
+    @Test
+    @DisplayName("Checking the close button")
+    void checkCloseButtonDisplay() {
+        AuthorizationModal authorizationModal = navbar.authorizationButtonClick();
+        authorizationModal.closeButtonBecomeVisible();
+        authorizationModal.closeButtonClick();
+    }
+
+    @Test
+    @DisplayName("Checking the display of password recovery interface")
+    void passwordRecoveryEmailInputDisplay() {
+        AuthorizationModal authorizationModal = navbar.authorizationButtonClick();
+        authorizationModal.forgottenPasswordButtonClick();
+        authorizationModal.passwordRecoveryInputBecomeVisible();
+        authorizationModal.sendRecoveryEmailButtonBecomeVisible();
+        authorizationModal.backToSignInBecomeVisible();
+    }
+
+
 }
