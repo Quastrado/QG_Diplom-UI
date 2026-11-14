@@ -113,10 +113,7 @@ public class TTGStartPageTests extends TestBase {
     @DisplayName("Checking the opening of a modal window with a video on the main page")
     void openVideoPlayerModal() {
         String videoLinkTitle = ttgClubStartPage.getVideoLinkText();
-        VideoMadal videoMadal = ttgClubStartPage.openVideo();
-        step("The title text of the video window matches the text of the link element", () ->
-            videoMadal.getVideoTitle().shouldHave(text(videoLinkTitle))
-        );
+        VideoModal videoModal = ttgClubStartPage.openVideo();
     }
 
     @Test

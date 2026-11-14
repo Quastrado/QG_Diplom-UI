@@ -4,7 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import pages.components.FormulaCalculator;
 import pages.components.MainPageSearchModal;
-import pages.components.VideoMadal;
+import pages.components.VideoModal;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -16,7 +16,8 @@ public class TTGClubStartPage {
     private final SelenideElement classesCard = $("a[href='/classes'][class='card']");
     private final SelenideElement tokenatorChapter = $(".token_library");
     private final SelenideElement formulaCalculatorButton = $(".n-float-button");
-    private final SelenideElement videoLink = $("._link_1lg7o_18");
+    private final SelenideElement videoLink = $("a[href$='/community-news']").closest("section");
+    ;
 
 
     @Step("Call search modal from the main page")
@@ -46,10 +47,9 @@ public class TTGClubStartPage {
     }
 
     @Step("Open video")
-    public VideoMadal openVideo() {
+    public VideoModal openVideo() {
         videoLink.click();
-
-        return new VideoMadal();
+        return new VideoModal();
     }
 
     @Step("Get background")

@@ -52,18 +52,4 @@ public class SettingsModal {
         return this;
     }
 
-    @Step("Light theme button click")
-    public String lightThemeButtonClick() {
-        settingsModalLightThemeButton.click();
-        String backgroundColor = $("html").getAttribute("class");
-        return backgroundColor;
-    }
-
-    @Step("Dark theme button click")
-    public String darkThemeButtonClick() {
-        settingsModalDarkThemeButton.click();
-        String backgroundColor = $("html").getAttribute("class");
-        return backgroundColor;
-    }
-
 }
