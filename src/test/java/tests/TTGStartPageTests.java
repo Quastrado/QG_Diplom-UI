@@ -3,6 +3,7 @@ package tests;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.MethodSource;
 import pages.ClassesPage;
 import pages.SearchPage;
@@ -132,20 +133,11 @@ public class TTGStartPageTests extends TestBase {
         settingsModal.settingsModalHeaderBecomeVisible(headerText);
     }
 
-    @Test
-    @DisplayName("Checking the switch theme to light")
-    void checkSwitchThemeToLight() {
+    @ParameterizedTest(name = "Check the switch theme to {0}")
+    @EnumSource(SettingsModal.Theme.class)
+    void checkSwitchColorTheme(SettingsModal.Theme theme) {
         SettingsModal settingsModal = navbar.settingsButtonClick();
-        String backgroundColor = settingsModal.lightThemeButtonClick();
-        assertEquals(testData.lightThemeBackgroundColor, backgroundColor);
-    }
-
-    @Test
-    @DisplayName("Checking the switch theme to light")
-    void checkSwitchThemeToDark() {
-        SettingsModal settingsModal = navbar.settingsButtonClick();
-        String backgroundColor = settingsModal.darkThemeButtonClick();
-        assertEquals(testData.darkThemeBackgroundColor, backgroundColor);
+        settingsModal.selectAndVerifyTheme(theme);
     }
 
     @Test
