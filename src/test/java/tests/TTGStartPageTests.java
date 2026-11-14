@@ -41,35 +41,15 @@ public class TTGStartPageTests extends TestBase {
     void checkOpenNavigationModalMenuHeader() {
         NavigationMenu navigationMenu = navbar.navigationMenuButtonClick();
         navigationMenu.headerBecomeVisible();
-    }
-
-    @Test
-    @DisplayName("Checking the navigation menu body display")
-    void checkOpenNavigationModalMenuBody() {
-        NavigationMenu navigationMenu = navbar.navigationMenuButtonClick();
         navigationMenu.menuBecomeVisible();
-    }
-
-    @Test
-    @DisplayName("Checking the navigation menu footer display")
-    void checkOpenNavigationModalMenuFooter() {
-        NavigationMenu navigationMenu = navbar.navigationMenuButtonClick();
         navigationMenu.footerBecomeVisible();
     }
 
-    @Test
-    @DisplayName("Checking the navigation menu close button display")
-    void checkNavigationModalMenuCLoseButton() {
-        NavigationMenu navigationMenu = navbar.navigationMenuButtonClick();
-        navigationMenu.menuBecomeVisible();
-        navigationMenu.closeButtonBecomeVisible();
-    }
-
-    @Test
+   @Test
     @DisplayName("Checking the navigation menu close by button")
     void checkCloseNavigationModalMenu() {
         NavigationMenu navigationMenu = navbar.navigationMenuButtonClick();
-        navigationMenu.menuBecomeVisible();
+        navigationMenu.closeButtonBecomeVisible();
         navigationMenu.closeNavMenu();
     }
 
