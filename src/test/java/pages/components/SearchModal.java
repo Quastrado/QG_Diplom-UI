@@ -13,7 +13,7 @@ public class SearchModal {
             ".relative.inline-flex.items-center.w-full.p-2.pe-12"
     );
     private final SelenideElement searchResultsBlock = $(".p-1.isolate");
-    private final SelenideElement searchPageLink = $("#reka-listbox-item-v-0-0-10");
+    private final SelenideElement searchPageLink = $("a[href='/search']");
 
     @Step("Search input block become visible")
     public void inputBlockBecomeVisible() {
