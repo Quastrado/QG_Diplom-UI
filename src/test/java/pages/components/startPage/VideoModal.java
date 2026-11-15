@@ -1,4 +1,4 @@
-package pages.components;
+package pages.components.startPage;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class VideoModal {
 
     private final SelenideElement videoModal = $("div[role='dialog'][data-state='open']");
-    private final SelenideElement videoTitle = $("#reka-dialog-title-v-0-1-11");
+    private final SelenideElement videoTitle = $("[data-slot='title']");
     private final SelenideElement videoCloseButton = $("button[data-slot='close']");
 
     @Step("Video modal become visible")

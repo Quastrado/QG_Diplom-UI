@@ -10,7 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import pages.TTGClubStartPage;
 import helpers.Attach;
-import pages.components.Navbar;
+import pages.components.navbar.Navbar;
 
 
 import java.util.Map;

@@ -19,6 +19,5 @@ public class TestDataTTGClub {
     public static List<String> settingsModalHeaders(){
         return List.of("Оформление", "Разделы справочника");
     }
-    public String lightThemeBackgroundColor = "light";
-    public String darkThemeBackgroundColor = "dark";
+
 }

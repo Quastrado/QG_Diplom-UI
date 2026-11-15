@@ -1,4 +1,4 @@
-package pages.components;
+package pages.components.navbar;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
