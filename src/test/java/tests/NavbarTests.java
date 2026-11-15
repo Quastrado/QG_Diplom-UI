@@ -13,7 +13,6 @@ import static com.codeborne.selenide.Condition.text;
 
 public class NavbarTests extends TestBase{
     TestDataTTGClub testData = new TestDataTTGClub();
-//    Navbar navbar = new Navbar();
 
     @Test
     @DisplayName("Checking the navigation menu header display")

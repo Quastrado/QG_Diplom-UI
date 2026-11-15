@@ -15,7 +15,6 @@ import static io.qameta.allure.Allure.step;
 
 public class TTGStartPageTests extends TestBase {
     TestDataTTGClub testData = new TestDataTTGClub();
-    Navbar navbar = new Navbar();
 
 
     @Test
@@ -55,10 +54,20 @@ public class TTGStartPageTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Checking the opening of a modal window with a video on the main page")
+    @DisplayName("Checking the video modal display")
     void openVideoPlayerModal() {
-        String videoLinkTitle = ttgClubStartPage.getVideoLinkText();
         VideoModal videoModal = ttgClubStartPage.openVideo();
+        videoModal.videoModalBecomeVisible();
+        videoModal.videoTitleBecomeVisible();
     }
+
+    @Test
+    @DisplayName("Checking the close of video modal")
+    void closeVideoPlayerModal() {
+        VideoModal videoModal = ttgClubStartPage.openVideo();
+        videoModal.videoCloseButtonBecomeVisible();
+        videoModal.videoCloseButtonClick();
+    }
+
 
 }
