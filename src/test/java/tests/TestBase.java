@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import pages.TTGClubStartPage;
 import helpers.Attach;
+import pages.components.Navbar;
 
 
 import java.util.Map;
@@ -20,6 +21,7 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 public class TestBase {
 
     TTGClubStartPage ttgClubStartPage = new TTGClubStartPage();
+    Navbar navbar = new Navbar();
 
     @BeforeAll
     static void setupSelenideEnv(){

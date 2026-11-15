@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Condition.text;
 
 public class NavbarTests extends TestBase{
     TestDataTTGClub testData = new TestDataTTGClub();
-    Navbar navbar = new Navbar();
+//    Navbar navbar = new Navbar();
 
     @Test
     @DisplayName("Checking the navigation menu header display")
@@ -47,14 +47,16 @@ public class NavbarTests extends TestBase{
         settingsModal.settingsModalBecomeVisible();
     }
 
-    @ParameterizedTest(name = "Checking the display of {0} header")
+    @DisplayName("Checking the display of header. ")
+    @ParameterizedTest(name = "Header - {0}")
     @MethodSource("tests.testdata.TestDataTTGClub#settingsModalHeaders")
     void checkDisplayOfSettingsHeaders(String headerText) {
         SettingsModal settingsModal = navbar.settingsButtonClick();
         settingsModal.settingsModalHeaderBecomeVisible(headerText);
     }
 
-    @ParameterizedTest(name = "Check the switch theme to {0}")
+    @DisplayName("Check the switch theme. ")
+    @ParameterizedTest(name = "Theme - {0}")
     @EnumSource(SettingsModal.Theme.class)
     void checkSwitchColorTheme(SettingsModal.Theme theme) {
         SettingsModal settingsModal = navbar.settingsButtonClick();
