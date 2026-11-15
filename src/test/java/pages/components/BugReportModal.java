@@ -18,7 +18,7 @@ public class BugReportModal {
             "div[data-slot='content'] div[data-slot='footer']"
     );
     private final SelenideElement bugReportModalTitle = $("div[data-slot='header'] h2[data-slot='title']");
-    private final SelenideElement bugReportModalCloseButton = $("header button[data-slot='close']");
+    private final SelenideElement bugReportModalCloseButton = $("button[data-slot='close']");
     private final SelenideElement bugReportTab = $(byText("Баг-репорт")).closest("button");
     private final SelenideElement wishTab = $(byText("Баг-репорт")).closest("button");
 
