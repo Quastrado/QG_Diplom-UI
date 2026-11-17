@@ -30,7 +30,7 @@ public class VideoModal {
 
     @Step("Video modal close button click")
     public void videoCloseButtonClick(){
-        videoCloseButton.click();
+        videoCloseButtonBecomeVisible();
         videoModal.shouldBe(disappear);
     }
 }
