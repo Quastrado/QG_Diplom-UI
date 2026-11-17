@@ -8,6 +8,7 @@ import pages.components.startPage.VideoModal;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 
 public class TTGClubStartPage {
@@ -19,6 +20,7 @@ public class TTGClubStartPage {
             "button[aria-label='История бросков'].rounded-full"
     );
     private final SelenideElement videoLink = $("a[href$='/community-news']").closest("section");
+    public final SelenideElement traderLink = $$("a[href='/tools/trader']").findBy(visible);
 
 
     @Step("Page search row become visible")
@@ -60,5 +62,15 @@ public class TTGClubStartPage {
         return new FormulaCalculator();
     }
 
+    @Step("Trader link become visible")
+    public void traderLinkBecomeVisible(){
+        traderLink.shouldBe(visible);
+    }
 
+    @Step("Trader link click")
+    public TTGClubTraderPage traderLinkClick(){
+        traderLinkBecomeVisible();
+        traderLink.click();
+        return new TTGClubTraderPage();
+    }
 }

@@ -45,4 +45,7 @@ public class TestDataTTGClub {
         );
     }
 
+    public String charismaBonus = "2";
+    public String amountOfMagic = "Много";
+
 }

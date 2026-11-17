@@ -10,6 +10,7 @@ import pages.ClassesPage;
 import static com.codeborne.selenide.Selenide.webdriver;
 import static com.codeborne.selenide.WebDriverConditions.urlContaining;
 
+import pages.TTGClubTraderPage;
 import pages.TokenatorPage;
 import pages.components.SearchModal;
 import pages.components.startPage.FormulaCalculator;
@@ -149,5 +150,13 @@ public class TTGStartPageTests extends TestBase {
         assertTrue(result <= dice.getSides());
     }
 
-
+    @Test
+    @DisplayName("Check the transition to the trader page.")
+    void checkTraderPageTransition(){
+        TTGClubTraderPage traderPage = ttgClubStartPage.traderLinkClick();
+        traderPage.pageTitleBecomeVisible();
+        traderPage.charismaPlusButtonClick(testData.charismaBonus);
+        traderPage.magicAmountFieldClick();
+        traderPage.chooseTheAmountOfMagic(testData.amountOfMagic);
+    }
 }
