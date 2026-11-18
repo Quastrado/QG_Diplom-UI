@@ -7,6 +7,7 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import pages.TTGClubStartPage;
 import helpers.Attach;
@@ -26,17 +27,33 @@ public class TestBase {
     @BeforeAll
     static void setupSelenideEnv(){
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
-        Configuration.headless = Boolean.parseBoolean(System.getProperty("headless", "false"));
         Configuration.baseUrl = System.getProperty("baseUrl", "https://5e14.ttg.club");
-        Configuration.browserVersion = System.getProperty("browserVersion");
         Configuration.browser = System.getProperty("browser", "chrome");
-        Configuration.remote = System.getProperty("remoteBrowserUrl");
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("selenoid:options", Map.of(
-                "enableVNC", true,
-                "enableVideo", true
-        ));
-        Configuration.browserCapabilities = capabilities;
+        Configuration.timeout = 10000; // увеличили таймаут до 10 сек для стабильности в CI
+
+        String remoteUrl = System.getProperty("remoteBrowserUrl");
+
+        if (remoteUrl != null && !remoteUrl.isEmpty()) {
+            // Настройки для Selenoid
+            Configuration.remote = remoteUrl;
+            Configuration.browserVersion = System.getProperty("browserVersion");
+
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setCapability("selenoid:options", Map.of(
+                    "enableVNC", true,
+                    "enableVideo", true
+            ));
+            Configuration.browserCapabilities = capabilities;
+        } else {
+            // Настройки для локального запуска на агенте Jenkins
+            Configuration.headless = Boolean.parseBoolean(System.getProperty("headless", "true"));
+
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--disable-gpu");
+            Configuration.browserCapabilities = options;
+        }
     }
 
     @BeforeEach
@@ -51,7 +68,8 @@ public class TestBase {
         Attach.pageSource();
         Attach.browserConsoleLogs();
 
-        if (System.getProperty("remoteUrl") != null) {
+        String remoteUrl = System.getProperty("remoteBrowserUrl");
+        if (remoteUrl != null && !remoteUrl.isEmpty()) {
             Attach.addVideo();
         };
 
