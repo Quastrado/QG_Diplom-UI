@@ -12,7 +12,6 @@ import java.util.regex.Pattern;
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.disappear;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class FormulaCalculator {
@@ -111,10 +110,7 @@ public class FormulaCalculator {
             return (1 + sides) / 2.0;
         }
 
-        // 1. Сколько раз в идеале должна выпасть каждая грань (например, для 1000 бросков d4 -> 250.0)
-        public double getExpectedFrequency(int rollsCount) {
-            return (double) rollsCount / sides;
-        }
+
 
         // 2. Минимально приемлемое количество выпадений одной грани (правило 4 сигм)
         public long getMinExpectedCount(int rollsCount) {

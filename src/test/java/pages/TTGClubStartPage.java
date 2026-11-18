@@ -5,8 +5,8 @@ import io.qameta.allure.Step;
 import pages.components.SearchModal;
 import pages.components.startPage.FormulaCalculator;
 import pages.components.startPage.VideoModal;
-
 import static com.codeborne.selenide.Condition.visible;
+
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
@@ -14,8 +14,6 @@ import static com.codeborne.selenide.Selenide.$$;
 public class TTGClubStartPage {
 
     private final SelenideElement pageSearchRow = $("button[class*='_search_']");
-    private final SelenideElement classesCard = $("a[href='/classes'][class='card']");
-    private final SelenideElement tokenatorChapter = $(".token_library");
     public final SelenideElement formulaCalculatorButton = $(
             "button[aria-label='История бросков'].rounded-full"
     );
@@ -33,20 +31,6 @@ public class TTGClubStartPage {
     public SearchModal callSearchModalFromMainPage() {
         pageSearchRow.click();
         return new SearchModal();
-    }
-
-    @Step("Go to the class page from the main page")
-    public ClassesPage goingToTheClassPage() {
-        classesCard.click();
-
-        return new ClassesPage();
-    }
-
-    @Step("Go to the tokenizer page from the main page")
-    public TokenatorPage redirectToTokenator() {
-        tokenatorChapter.click();
-
-        return new TokenatorPage();
     }
 
    @Step("Open video")

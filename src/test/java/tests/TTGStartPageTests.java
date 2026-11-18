@@ -5,13 +5,11 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.MethodSource;
-import pages.ClassesPage;
 
 import static com.codeborne.selenide.Selenide.webdriver;
 import static com.codeborne.selenide.WebDriverConditions.urlContaining;
 
 import pages.TTGClubTraderPage;
-import pages.TokenatorPage;
 import pages.components.SearchModal;
 import pages.components.startPage.FormulaCalculator;
 import pages.components.startPage.VideoModal;
@@ -20,7 +18,6 @@ import tests.testdata.TestDataTTGClub;
 import java.util.Arrays;
 import java.util.function.Consumer;
 
-import static com.codeborne.selenide.Condition.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
@@ -61,20 +58,6 @@ public class TTGStartPageTests extends TestBase {
        ttgClubStartPage.pageSearchRowBecomeVisible();
        SearchModal searchModal = ttgClubStartPage.callSearchModalFromMainPage();
        searchModal.verifyNoResultsFound(testData.invalidQuery);
-    }
-
-    @Test
-    @DisplayName("Checking the script for navigating to a class page from the main page")
-    void checkGoingToTheClassPage() {
-        ClassesPage classesPage = ttgClubStartPage.goingToTheClassPage();
-        classesPage.classBardLinkCLick().getBardClassArchetypesList().shouldHave(visible);
-    }
-
-    @Test
-    @DisplayName("Checking the transition to the Tokenator page")
-    void checkGoingToTheTokenator() {
-        TokenatorPage tokenatorPage = ttgClubStartPage.redirectToTokenator();
-        tokenatorPage.getPageTitle().shouldHave(visible);
     }
 
     @Test

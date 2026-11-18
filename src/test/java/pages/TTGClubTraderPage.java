@@ -35,7 +35,7 @@ public class TTGClubTraderPage {
 
     @Step("Charisma plus button click")
     public void charismaPlusButtonClick(String charismaBonus) {
-        charismaCheckField.shouldBe(visible);
+        charismaCheckFieldBecomeVisible();
         charismaPlusButtonBecomeVisible();
         charismaPlusButton.click();
         charismaCheckField.shouldHave(value(charismaBonus));

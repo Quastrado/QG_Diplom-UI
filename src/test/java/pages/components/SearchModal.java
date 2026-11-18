@@ -3,7 +3,7 @@ package pages.components;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import pages.SearchPage;
+import pages.TTGClubSearchPage;
 
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.*;
@@ -67,8 +67,8 @@ public class SearchModal {
     }
 
     @Step("Redirect to search page")
-    public SearchPage redirectToSearchPage() {
+    public TTGClubSearchPage redirectToSearchPage() {
         searchPageLink.click();
-        return new SearchPage();
+        return new TTGClubSearchPage();
     }
 }

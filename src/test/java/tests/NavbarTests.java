@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.MethodSource;
-import pages.SearchPage;
+import pages.TTGClubSearchPage;
 import pages.components.SearchModal;
 import pages.components.navbar.*;
 import tests.testdata.TestDataTTGClub;
@@ -76,7 +76,7 @@ public class NavbarTests extends TestBase{
     @DisplayName("Checking the transition to the search page")
     void checkGoingToTheSearchPage() {
         SearchModal searchModal = navbar.searchButtonClick();
-        SearchPage searchPage = searchModal.redirectToSearchPage();
+        TTGClubSearchPage searchPage = searchModal.redirectToSearchPage();
         searchPage.getPageTitle().shouldHave(text(testData.searchPageTitle));
     }
 

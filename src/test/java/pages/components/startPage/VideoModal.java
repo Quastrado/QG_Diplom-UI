@@ -1,11 +1,12 @@
 package pages.components.startPage;
 
+
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
-import static com.codeborne.selenide.Condition.disappear;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Condition.disappear;
+import static com.codeborne.selenide.Selenide.*;
 
 public class VideoModal {
 
@@ -31,6 +32,7 @@ public class VideoModal {
     @Step("Video modal close button click")
     public void videoCloseButtonClick(){
         videoCloseButtonBecomeVisible();
+        videoCloseButton.click();
         videoModal.shouldBe(disappear);
     }
 }
