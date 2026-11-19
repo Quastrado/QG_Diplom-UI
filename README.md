@@ -18,25 +18,15 @@
 
 ## Технологии и инструменты
 
-<p align="center">
-  <img src="images/icons/java.svg" width="42" height="42" alt="Java" title="Java 21"/>
-  <img src="images/icons/gradle.svg" width="42" height="42" alt="Gradle" title="Gradle"/>
-  <img src="images/icons/junit5.svg" width="42" height="42" alt="JUnit 5" title="JUnit 5"/>
-  <img src="images/icons/selenide.svg" width="42" height="42" alt="Selenide" title="Selenide"/>
-  <img src="images/icons/selenoid.svg" width="42" height="42" alt="Selenoid" title="Selenoid"/>
-  <img src="images/icons/jenkins.svg" width="42" height="42" alt="Jenkins" title="Jenkins"/>
-  <img src="images/icons/allure.svg" width="42" height="42" alt="Allure Report" title="Allure Report"/>
-  <img src="images/icons/telegram.svg" width="42" height="42" alt="Telegram" title="Telegram"/>
-</p>
-
-
-* **Язык и сборщик:** Java 21, Gradle
-* **Тестовый фреймворк:** JUnit 5, Selenide 7.13.0
-* **Паттерны проектирования:** Page Object / Page Components, Value Object / Data-driven тестирование (`@ParameterizedTest` с `@MethodSource` и `@EnumSource`)
-* **Удалённый запуск браузеров:** Selenoid (`selenoid.qa.guru`)
-* **CI/CD:** Jenkins
-* **Отчётность и TMS:** Allure Report, Allure TestOps
-* **Нотификации:** Telegram Bot (`allure-notifications`)
+| Категория | Технологии |
+| :--- | :--- |
+| **Язык и сборщик** | `Java 21`, `Gradle` |
+| **Тестовый фреймворк** | `JUnit 5`, `Selenide 7.13.0` |
+| **Паттерны** | `Page Object` / `Page Components`, `Value Object`, Data-driven (`@ParameterizedTest`) |
+| **Удалённый запуск** | `Selenoid` (`selenoid.qa.guru`) |
+| **CI/CD** | `Jenkins` |
+| **Отчётность и TMS** | `Allure Report`, `Allure TestOps` |
+| **Нотификации** | `Telegram Bot` (`allure-notifications`) |
 
 ---
 
