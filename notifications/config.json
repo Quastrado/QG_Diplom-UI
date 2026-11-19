@@ -1,12 +1,12 @@
 {
   "base": {
-    "project": "QG_hw15",
+    "project": "Quastrado_Diplom-TTGClub_UI",
     "environment": "qa.guru",
     "comment": "comment @Quastrado",
     "reportLink": "",
     "language": "en",
     "allureFolder": "allure-report",
-    "enableChart": false
+    "enableChart": true
   },
   "telegram": {
     "token": "8552327727:AAEEVcwn9-d7mTOBU3wPa_EFE0kZaVJpvXU",
