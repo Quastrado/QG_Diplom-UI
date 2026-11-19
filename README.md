@@ -1,96 +1,150 @@
-# Проект по автоматизации тестирования UI части стартовой страницы онлайн справочника D&D TTG Club
+# Проект по автоматизации UI-тестирования портала [TTG Club](https://ttg.club)
 
-  > Тестируемый ресурс - https://5e14.ttg.club/
+> Дипломный проект по автоматизации тестирования пользовательского интерфейса справочника по D&D 5e (**TTG Club**).
 
-## Стек технологий
+---
+
+## Содержание
+* [Технологии и инструменты](#технологии-и-инструменты)
+* [Реализованные проверки](#реализованные-проверки)
+* [Запуск тестов](#запуск-тестов)
+* [Сборка в Jenkins](#сборка-в-jenkins)
+* [Отчётность в Allure Report](#отчётность-в-allure-report)
+* [Интеграция с Allure TestOps](#интеграция-с-allure-testops)
+* [Уведомления в Telegram](#уведомления-в-telegram)
+* [Видео прохождения тестов в Selenoid](#видео-прохождения-тестов-в-selenoid)
+
+---
+
+## Технологии и инструменты
 
 <p align="center">
-<a href="https://www.java.com/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="50" height="50"/></a>
-<a href="https://www.jetbrains.com/idea/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" width="50" height="50"/></a>
-<a href="https://junit.org/junit5/"><img src="https://junit.org/junit5/assets/img/junit5-logo.png" width="50" height="50"/></a>
-<a href="https://qameta.io/allure-report/"><img src="https://avatars.githubusercontent.com/u/5879127?s=200&v=4" width="50" height="50"/></a>
-<a href="https://www.jenkins.io/"><img src="https://www.jenkins.io/images/logos/jenkins/jenkins.svg" width="50" height="50"/></a>
-<a href="https://www.atlassian.com/software/jira"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" width="50" height="50"/></a>
-<a href="https://telegram.org/"><img src="https://i.pinimg.com/originals/4a/4d/ee/4a4dee00b008fdf71e32f694ba17453f.jpg?nii=t" width="50" height="50"/></a>
+  <a href="https://java.com"><img src="https://jsdelivr.net" width="40" height="40" alt="Java" title="Java 21"/></a>
+  <a href="https://gradle.org"><img src="https://jsdelivr.net" width="40" height="40" alt="Gradle" title="Gradle"/></a>
+  <a href="https://junit.org"><img src="https://jsdelivr.net" width="40" height="40" alt="JUnit 5" title="JUnit 5"/></a>
+  <a href="https://selenide.org"><img src="https://selenide.orgimages/selenide-logo-big.png" width="40" height="40" alt="Selenide" title="Selenide"/></a>
+  <a href="https://aerokube.com"><img src="https://aerokube.com" width="40" height="40" alt="Selenoid" title="Selenoid"/></a>
+  <a href="https://jenkins.io"><img src="https://jsdelivr.net" width="40" height="40" alt="Jenkins" title="Jenkins"/></a>
+  <a href="https://allurereport.org"><img src="https://githubusercontent.com" width="40" height="40" alt="Allure Report" title="Allure Report"/></a>
+  <a href="https://telegram.org"><img src="https://wikimedia.org" width="40" height="40" alt="Telegram" title="Telegram"/></a>
 </p>
 
-## Список проверок
+* **Язык и сборщик:** Java 21, Gradle
+* **Тестовый фреймворк:** JUnit 5, Selenide 7.13.0
+* **Паттерны проектирования:** Page Object / Page Components, Value Object / Data-driven тестирование (`@ParameterizedTest` с `@MethodSource` и `@EnumSource`)
+* **Удалённый запуск браузеров:** Selenoid (`selenoid.qa.guru`)
+* **CI/CD:** Jenkins
+* **Отчётность и TMS:** Allure Report, Allure TestOps
+* **Нотификации:** Telegram Bot (`allure-notifications`)
 
-- Проверка простого сценария поиска с главной страницы
-- Проверка отображения навигационного меню
-- Проверка перехода на страницу поиска
-- Проверка отображения списка закладок
-- Проверка отображения окна для сообщения о баге
-- Проверка переключения на тёмную цветовую тему
-- Проверка сценария перехода на страницу класса с главной страницы
-- Проверка открытия модального окна с видеороликом на главной странице
-- Проверка отработки калькулятора формул
-- Проверка перехода на страницу с Токенатором
+---
+
+## Реализованные проверки
+
+### Навигационная панель и модальные окна (`NavbarTests`)
+- [x] Открытие и закрытие главного навигационного меню (проверка отображения шапки, списка разделов и футера);
+- [x] Открытие модального окна закладок и отображение списка сохранённых элементов;
+- [x] Открытие модального окна настроек и параметризованная проверка всех заголовков разделов;
+- [x] Параметризованная проверка переключения цветовых тем оформления (`SettingsModal.Theme`);
+- [x] Открытие модального окна поиска (проверка поля ввода, блока результатов и ссылки перехода на страницу поиска);
+- [x] Переход из модального окна поиска на полноценную страницу поиска (`TTGClubSearchPage`);
+- [x] Открытие и закрытие модального окна отправки баг-репорта (проверка шапки, заголовка, тела окна, вкладок и футера);
+- [x] Открытие и закрытие модального окна авторизации (проверка полей логина/пароля, чекбокса «Запомнить меня» и кнопок входа);
+- [x] Переход к форме восстановления пароля и проверка её элементов.
+
+### Главная страница, поиск и калькулятор бросков (`TTGStartPageTests`)
+- [x] Параметризованная проверка поисковой выдачи в модальном окне по различным запросам и проверка `href` ссылок;
+- [x] Сквозной (End-to-End) сценарий поиска с переходом на целевую страницу и проверкой URL и заголовка;
+- [x] Проверка отображения заглушки при отсутствии результатов по невалидному поисковому запросу;
+- [x] Открытие и закрытие модального окна видеоплеера на главной странице;
+- [x] Открытие и закрытие калькулятора бросков игральных костей (`FormulaCalculator`);
+- [x] Параметризованная проверка расчёта формул для всех типов костей (`Dice`);
+- [x] Статистическая проверка равномерности распределения результатов при серии из 1000 бросков для каждого типа костей;
+- [x] Проверка граничных значений: результат броска не превышает максимальное количество граней выбранной кости;
+- [x] Переход на страницу торговца (`TTGClubTraderPage`), изменение модификатора харизмы и выбор количества магических предметов.
+
+---
 
 ## Запуск тестов
-### Из терминала
+
+### Локальный запуск (в headless-режиме по умолчанию)
 ```bash
-clean test \
--DbaseUrl=$BASE_URL \
--DremoteBrowserUrl=$SELENOID_URL \
--Dbrowser=$BROWSER\
--DbrowserVersion=$BROWSER_VERSION \
--Dheadless=$HEADLESS \
--DbrowserSize=$BROWSER_SIZE
+./gradlew clean test
 ```
-Используемые параметры:
-- BASE_URL (url адрес тестируемой страницы);
-- SELENOID_URL (url адрес удалённой фермы браузеров);
-- BROWSER (браузер);
-- BROWSER_VERSION (версия браузера);
-- HEADLESS (параметр для запуска UI тестов без открытия браузера);
-- BROWSER_SIZE (параметр расширения браузера)
 
- ### Из Jemkins
- [Ссылка на задачу Jenkins](https://jenkins.autotests.cloud/view/java_students/job/quastrado_TTGClub_job/)
-<p align="center">
-<img title="Job" src="images/job.png">
-</p>
+### Локальный запуск с отображением окна браузера
+```bash
+./gradlew clean test -Dheadless=false
+```
 
-- Выбрать браузер;
-- Выбрать разрешение браузера;
-- Запустить сборку
+### Удалённый запуск в Selenoid
+```bash
+./gradlew clean test \
+  -DremoteBrowserUrl=https://qa.guru \
+  -Dbrowser=chrome \
+  -DbrowserSize=1920x1080
+```
 
-## Allure Report
-[Ссылка на отчёт в Allure](https://jenkins.autotests.cloud/view/java_students/job/quastrado_TTGClub_job/allure/)
-### Дашборд
-<p align="center">
-<img title="Overview" src="images/allure_report_overview.png">
-</p>
+### Параметры запуска
 
-### Пройденные тесты
-<p align="center">
-<img title="Suites" src="images/allure_report_suites.png">
-</p>
+| Параметр | Описание | Значение по умолчанию |
+| :--- | :--- | :--- |
+| `baseUrl` | Базовый URL тестируемого стенда | `https://5e14.ttg.club/` |
+| `browser` | Браузер для запуска (`chrome`, `firefox` и др.) | `chrome` |
+| `browserVersion` | Версия браузера в Selenoid | *(версия по умолчанию на сервере)* |
+| `browserSize` | Разрешение окна браузера | `1920x1080` |
+| `headless` | Фоновый режим (используется только при локальном запуске) | `true` |
+| `remoteBrowserUrl` | URL удалённого хаба Selenoid (`/wd/hub`) | *(не задан — локальный запуск)* |
 
-### Видео прохождения теста
-<p align="center">
-<img title="Video" src="video/5f08f693eff7119c3ce9a1901c5ca14b.mp4">
-</p>
+---
 
-### Метрики
-<p align="center">
-<img title="Graphs" src="images/allure_report_graphs.png">
-</p>
+## Сборка в Jenkins
 
-## Allure TestOps
-[Ссылка на Allure TestOps](https://allure.autotests.cloud/project/5250/dashboards)
-### Дашборд
-<p align="center">
-<img title="Dashboard" src="images/dashboard.png">
-</p>
+Параметризованная сборка настроена в **[Jenkins](https://qa.guru)**.
 
-### Автоматизированные и ручные тест-кейсы
-<p align="center">
-<img title="Testcases" src="images/testcases.png">
-</p>
+Перед запуском сборки можно задать параметры:
+* `REMOTE_URL` — URL удалённого сервера Selenoid;
+* `BROWSER_SIZE` — разрешение окна браузера;
+* `HEADLESS` — режим запуска при пустом `REMOTE_URL`.
 
-## Telegram уведомления
-<p align="center">
-<img title="Telegram" src="images/telegram.jpg" width="600">
-</p>
+*(После загрузки скриншотов в папку `images/` в репозитории раскомментируй строку ниже)*
+<!-- ![Jenkins Build](images/jenkins.png) -->
+
+---
+
+## Отчётность в Allure Report
+
+После завершения прогона в Jenkins автоматически генерируется **Allure Report**. К каждому тесту прикрепляются артефакты (`Attachments`):
+* Скриншот последнего состояния экрана (`Last screenshot`);
+* Исходный код страницы (`Page source`);
+* Логи консоли браузера (`Browser console logs`);
+* Видеозапись выполнения сценария из Selenoid (при удалённом запуске).
+
+<!-- ![Allure Report](images/allure-report.png) -->
+
+---
+
+## Интеграция с Allure TestOps
+
+Проект интегрирован с **Allure TestOps**:
+* Результаты всех прогонов из Jenkins автоматически загружаются в раздел **Launches**;
+* На основе автотестов формируется и поддерживается в актуальном состоянии тестовая документация в разделе **Test cases**;
+* Настроен запуск джобы Jenkins непосредственно из интерфейса Allure TestOps.
+
+<!-- ![Allure TestOps](images/allure-testops.png) -->
+
+---
+
+## Уведомления в Telegram
+
+После генерации отчёта утилита **`allure-notifications`** формирует круговую диаграмму и отправляет в Telegram-чат сводку о результатах прогона (количество пройденных/упавших сценариев, время выполнения и ссылку на отчёт).
+
+<!-- ![Telegram Notification](images/telegram.png) -->
+
+---
+
+## Видео прохождения тестов в Selenoid
+
+К каждому тесту, выполненному в Selenoid, в отчёте Allure прикрепляется видеозапись прохождения сценария в реальном браузере.
+
+<!-- ![Selenoid Video](images/selenoid-video.gif) -->
