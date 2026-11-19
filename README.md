@@ -19,15 +19,16 @@
 ## Технологии и инструменты
 
 <p align="center">
-  <a href="https://java.com"><img src="https://jsdelivr.net" width="40" height="40" alt="Java" title="Java 21"/></a>
-  <a href="https://gradle.org"><img src="https://jsdelivr.net" width="40" height="40" alt="Gradle" title="Gradle"/></a>
-  <a href="https://junit.org"><img src="https://jsdelivr.net" width="40" height="40" alt="JUnit 5" title="JUnit 5"/></a>
-  <a href="https://selenide.org"><img src="https://selenide.orgimages/selenide-logo-big.png" width="40" height="40" alt="Selenide" title="Selenide"/></a>
-  <a href="https://aerokube.com"><img src="https://aerokube.com" width="40" height="40" alt="Selenoid" title="Selenoid"/></a>
-  <a href="https://jenkins.io"><img src="https://jsdelivr.net" width="40" height="40" alt="Jenkins" title="Jenkins"/></a>
-  <a href="https://allurereport.org"><img src="https://githubusercontent.com" width="40" height="40" alt="Allure Report" title="Allure Report"/></a>
-  <a href="https://telegram.org"><img src="https://wikimedia.org" width="40" height="40" alt="Telegram" title="Telegram"/></a>
+  <img src="images/icons/java.svg" width="42" height="42" alt="Java" title="Java 21"/>
+  <img src="images/icons/gradle.svg" width="42" height="42" alt="Gradle" title="Gradle"/>
+  <img src="images/icons/junit5.svg" width="42" height="42" alt="JUnit 5" title="JUnit 5"/>
+  <img src="images/icons/selenide.svg" width="42" height="42" alt="Selenide" title="Selenide"/>
+  <img src="images/icons/selenoid.svg" width="42" height="42" alt="Selenoid" title="Selenoid"/>
+  <img src="images/icons/jenkins.svg" width="42" height="42" alt="Jenkins" title="Jenkins"/>
+  <img src="images/icons/allure.svg" width="42" height="42" alt="Allure Report" title="Allure Report"/>
+  <img src="images/icons/telegram.svg" width="42" height="42" alt="Telegram" title="Telegram"/>
 </p>
+
 
 * **Язык и сборщик:** Java 21, Gradle
 * **Тестовый фреймворк:** JUnit 5, Selenide 7.13.0
