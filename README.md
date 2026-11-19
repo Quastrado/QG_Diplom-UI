@@ -19,15 +19,14 @@
 ## Технологии и инструменты
 
 <p align="center">
-  <img src="https://shields.io" alt="Java"/>
-  <img src="https://shields.io" alt="Gradle"/>
-  <img src="https://shields.io" alt="JUnit 5"/>
-  <img src="https://shields.io" alt="Selenide"/>
-  <img src="https://shields.io" alt="Selenoid"/>
-  <img src="https://shields.io" alt="Jenkins"/>
-  <img src="https://shields.io" alt="Allure Report"/>
-  <img src="https://shields.io" alt="Allure TestOps"/>
-  <img src="https://shields.io" alt="Telegram"/>
+  <a href="https://java.com"><img src="https://jsdelivr.net" width="40" height="40" alt="Java" title="Java 21"/></a>
+  <a href="https://gradle.org"><img src="https://jsdelivr.net" width="40" height="40" alt="Gradle" title="Gradle"/></a>
+  <a href="https://junit.org"><img src="https://jsdelivr.net" width="40" height="40" alt="JUnit 5" title="JUnit 5"/></a>
+  <a href="https://selenide.org"><img src="https://selenide.orgimages/selenide-logo-big.png" width="40" height="40" alt="Selenide" title="Selenide"/></a>
+  <a href="https://aerokube.com"><img src="https://aerokube.com" width="40" height="40" alt="Selenoid" title="Selenoid"/></a>
+  <a href="https://jenkins.io"><img src="https://jsdelivr.net" width="40" height="40" alt="Jenkins" title="Jenkins"/></a>
+  <a href="https://allurereport.org"><img src="https://githubusercontent.com" width="40" height="40" alt="Allure Report" title="Allure Report"/></a>
+  <a href="https://telegram.org"><img src="https://wikimedia.org" width="40" height="40" alt="Telegram" title="Telegram"/></a>
 </p>
 
 * **Язык и сборщик:** Java 21, Gradle
