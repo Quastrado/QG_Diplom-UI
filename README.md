@@ -98,31 +98,37 @@
 * `BROWSER_SIZE` — разрешение окна браузера;
 * `HEADLESS` — режим запуска при пустом `REMOTE_URL`.
 
-*(После загрузки скриншотов в папку `images/` в репозитории раскомментируй строку ниже)*
-<!-- ![Jenkins Build](images/jenkins.png) -->
+![Jenkins Build](images/jenkins_job.png)
 
 ---
 
 ## Отчётность в Allure Report
 
-После завершения прогона в Jenkins автоматически генерируется **Allure Report**. К каждому тесту прикрепляются артефакты (`Attachments`):
+После завершения прогона в Jenkins автоматически генерируется **Allure Report**
+![Allure Report Overview](images/allure_overview.png)
+К каждому тесту прикрепляются артефакты (`Attachments`):
 * Скриншот последнего состояния экрана (`Last screenshot`);
 * Исходный код страницы (`Page source`);
 * Логи консоли браузера (`Browser console logs`);
 * Видеозапись выполнения сценария из Selenoid (при удалённом запуске).
+![Allure Report Overview](images/allure_suites.png)
 
-<!-- ![Allure Report](images/allure-report.png) -->
+![Allure Report Graphs](images/allure_graphs.png)
 
 ---
 
 ## Интеграция с Allure TestOps
-
+![Allure TestOps](images/allureTestops_dashboard.png)
 Проект интегрирован с **Allure TestOps**:
 * Результаты всех прогонов из Jenkins автоматически загружаются в раздел **Launches**;
+![Allure TestOps](images/allureTestops_launches.png)
 * На основе автотестов формируется и поддерживается в актуальном состоянии тестовая документация в разделе **Test cases**;
+![Allure TestOps](images/allureTestops_testcases.png)
 * Настроен запуск джобы Jenkins непосредственно из интерфейса Allure TestOps.
+![Allure TestOps](images/allure_testOps_job.png)
 
-<!-- ![Allure TestOps](images/allure-testops.png) -->
+
+
 
 ---
 
@@ -130,7 +136,7 @@
 
 После генерации отчёта утилита **`allure-notifications`** формирует круговую диаграмму и отправляет в Telegram-чат сводку о результатах прогона (количество пройденных/упавших сценариев, время выполнения и ссылку на отчёт).
 
-<!-- ![Telegram Notification](images/telegram.png) -->
+![Telegram Notification](images/telegram_report.png)
 
 ---
 
@@ -138,4 +144,4 @@
 
 К каждому тесту, выполненному в Selenoid, в отчёте Allure прикрепляется видеозапись прохождения сценария в реальном браузере.
 
-<!-- ![Selenoid Video](images/selenoid-video.gif) -->
+![Selenoid Video](images/test_video.gif)
